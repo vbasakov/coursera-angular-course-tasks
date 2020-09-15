@@ -11,10 +11,19 @@
             Some string:
             <input type="text" ng-model="name" ng-keyup="showResult();">
         </div>
-        {{name}}
+        {{test}}
         <div>
             Total: {{total}}
         </div>
+    </div>
+    <div ng-controller="tableController">
+        <H1>Table</H1>
+        <table>
+            <tr ng-repeat="item in data">
+                <td>{{item.name}}</td>
+                <td>{{item.value}}</td>
+            </tr>
+        </table>
     </div>
 </body>
 </html>

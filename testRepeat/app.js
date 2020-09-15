@@ -1,6 +1,7 @@
 (function () {
     'use strict';
 
+
     angular.module("angModule", [])
         .controller("someController1", function ($scope) {
             $scope.name = "Initial string"
@@ -8,6 +9,13 @@
             $scope.showResult = function () {
                 $scope.total = calc($scope.name);
             }
+        })
+        .controller("tableController", function ($scope) {
+            $scope.test = 123;
+            $scope.data = [
+                {name: 'name1', value: 123},
+                {name: 'name2', value: 444}
+            ]
         });
 
     function calc(name) {
