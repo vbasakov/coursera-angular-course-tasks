@@ -18,10 +18,14 @@
     </div>
     <div ng-controller="tableController">
         <H1>Table</H1>
-        <table>
-            <tr ng-repeat="item in data">
+        <table border="1px">
+            <tr ng-repeat-start="item in data">
                 <td>{{item.name}}</td>
                 <td>{{item.value}}</td>
+            </tr>
+            <tr ng-repeat-end ng-if="item.children" ng-repeat="child in item.children">
+                <td>{{child.name}}</td>
+                <td>{{child.value}}</td>
             </tr>
         </table>
     </div>
