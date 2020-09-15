@@ -14,7 +14,12 @@
             $scope.test = 123;
             $scope.data = [
                 {name: 'name1', value: 123},
-                {name: 'name2', value: 444},
+                {name: 'name2', value: 444, exposed: true,
+                children: [
+                    {name: 'child3', value: 6},
+                    {name: 'child1', value: 5},
+                    {name: 'child2', value: 7}
+                ]},
                 {
                     name: 'big', value: 444, exposed: true,
                     children: [
