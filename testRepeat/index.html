@@ -20,10 +20,12 @@
         <H1>Table</H1>
         <table border="1px">
             <tr ng-repeat-start="item in data">
-                <td>{{item.name}}</td>
+                <td ng-click="nameClick(item);">{{item.name}}</td>
+                <td></td>
                 <td>{{item.value}}</td>
             </tr>
-            <tr ng-repeat-end ng-if="item.children" ng-repeat="child in item.children">
+            <tr ng-repeat-end ng-if="item.children && item.exposed" ng-repeat="child in item.children">
+                <td></td>
                 <td>{{child.name}}</td>
                 <td>{{child.value}}</td>
             </tr>

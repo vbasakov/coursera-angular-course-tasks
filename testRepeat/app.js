@@ -16,12 +16,17 @@
                 {name: 'name1', value: 123},
                 {name: 'name2', value: 444},
                 {
-                    name: 'big', value: 444, children: [
+                    name: 'big', value: 444, exposed: true,
+                    children: [
                         {name: 'child1', value: 666},
-                        {name: 'child2', value: 777}]
+                        {name: 'child11', value: 555},
+                        {name: 'child2', value: 777}
+                    ]
                 }
-
             ]
+            $scope.nameClick = function (item) {
+                item.exposed = !item.exposed;
+            }
         });
 
     function calc(name) {
