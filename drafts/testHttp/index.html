@@ -1,0 +1,23 @@
+<html lang="ru">
+<head>
+    <script src="angular.min.js"></script>
+    <script src="app.js"></script>
+    <title>json</title></head>
+<body ng-app="angModule">
+
+
+    <div ng-controller="tableController as ctrl">
+        <H1>Table</H1>
+        <table border="1px">
+            <tr ng-repeat="item in ctrl.list">
+                <td>{{ item.operDate }}</td>
+                <td>{{ item.sum }}</td>
+                <td>{{ item.description }}</td>
+            </tr>
+        </table>
+    </div>
+
+
+
+</body>
+</html>
