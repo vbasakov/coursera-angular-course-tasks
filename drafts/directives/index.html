@@ -7,13 +7,17 @@
 
 
     <div ng-controller="TableController as ctrl">
+        {{ ctrl.prop4 }}<br/>
         <input type="text" ng-model="ctrl.prop1"/>
         <input type="text" ng-model="ctrl.prop2"/>
         <input type="text" ng-model="ctrl.prop3"/><br/>
         {{ ctrl.prop1 }} <br/>
         {{ ctrl.prop2 }} <br/>
         {{ ctrl.prop3 }} <br/>
-        <dir1 prop1="ctrl.prop1"  prop2="{{ ctrl.prop2 }}" prop3="ctrl.prop3"/>
+        <dir1 prop1="ctrl.prop1"
+              prop2="{{ ctrl.prop2 }}"
+              prop3="ctrl.prop3"
+              outer-method="ctrl.someMethod(arg)"/>
     </div>
 
 </body>
