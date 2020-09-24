@@ -3,11 +3,13 @@
 <head>
     <title>Narrow Down Your Menu Choice</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="angular.min.js"></script>
+    <script src="app.js"></script>
     <link rel="stylesheet" href="styles/bootstrap.min.css">
     <link rel="stylesheet" href="styles/styles.css">
 </head>
-<body>
-<div class="container">
+<body ng-app="Assignment3">
+<div class="container" ng-controller="NarrowItDownController as ctrl">
     <h1>Narrow Down Your Chinese Menu Choice</h1>
 
     <div class="form-group">
@@ -17,8 +19,11 @@
         <button class="btn btn-primary">Narrow It Down For Me!</button>
     </div>
 
+    <ul>
+        <li ng-repeat="item in ctrl.list">{{ item }}</li>
+    </ul>
     <!-- found-items should be implemented as a component -->
-    <found-items found-items="...." on-remove="...."></found-items>
+<!--    <found-items found-items="...." on-remove="...."></found-items>-->
 </div>
 
 <div class="container">
