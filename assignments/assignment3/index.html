@@ -31,20 +31,13 @@
     </div>
 
 
-    <table border="1px" ng-show="ctrl.found.length > 0">
-        <tr ng-repeat="item in ctrl.found">
-            <td>{{ item.name }}</td>
-            <td>{{ item.short_name }}</td>
-            <td>{{ item.description }}</td>
-            <td>
-                <button class="btn btn-primary" ng-click="ctrl.removeFromFound($index)">Don't want this one!</button>
-            </td>
-        </tr>
-    </table>
+    <found-items ng-show="ctrl.found.length > 0"
+                found-items="ctrl.found"
+                on-remove="ctrl.removeFromFound(index)"></found-items>
 
     <!-- found-items should be implemented as a component -->
     <!--    <found-items found-items="...." on-remove="...."></found-items>-->
-        
+
     <div ng-show="ctrl.searchClicked && (ctrl.found.length === 0 || ctrl.searchText.length === 0)"
          class="emptyMessage">
         Nothing found

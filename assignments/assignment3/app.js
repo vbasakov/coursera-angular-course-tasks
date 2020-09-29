@@ -4,7 +4,23 @@
     angular.module('Assignment3', [])
         .constant("endpoint", "https://davids-restaurant.herokuapp.com/menu_items.json")
         .controller("NarrowItDownController", NarrowItDownController)
-        .service("MenuSearchService", MenuSearchService);
+        .service("MenuSearchService", MenuSearchService)
+        .component('foundItems', {
+            templateUrl: 'foundItems.html',
+            controller: FoundListComponentController,
+            bindings: {
+                foundItems: '<',
+                onRemove: '&'
+            }
+        });
+
+    function FoundListComponentController() {
+        let $ctrl = this;
+
+        $ctrl.remove = function (myIndex) {
+            $ctrl.onRemove({index: myIndex});
+        };
+    }
 
 
     NarrowItDownController.$inject = ["MenuSearchService"];
@@ -26,12 +42,13 @@
         }
 
         ctrl.search = function () {
-            console.log("Search func");
-            ctrl.searchClicked = true;
-            if (ctrl.searchText.length === 0)
+            if (ctrl.searchText.length === 0) {
+                ctrl.searchClicked = true;
                 return;
+            }
             let promise = MenuSearchService.getRecords();
             promise.then(function (response) {
+                ctrl.searchClicked = true;
                 let list = response.data.menu_items;
                 ctrl.found = filter(list, ctrl.searchText);
             })
