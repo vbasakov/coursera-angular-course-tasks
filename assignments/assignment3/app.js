@@ -46,12 +46,10 @@
                 ctrl.searchClicked = true;
                 return;
             }
-            let promise = MenuSearchService.getRecords();
-            promise.then(function (response) {
+            MenuSearchService.getMatchedMenuItems(ctrl.searchText).then(function (found) {
+                ctrl.found = found;
                 ctrl.searchClicked = true;
-                let list = response.data.menu_items;
-                ctrl.found = filter(list, ctrl.searchText);
-            })
+            });
         };
 
         ctrl.onKeydown = function (event) {
@@ -67,20 +65,35 @@
     }
 
 
-    //кешировать?
     MenuSearchService.$inject = ["$http", "endpoint"]
 
     function MenuSearchService($http, endpoint) {
         let service = this;
 
+        //Запрос кешируется браузером, поэтому собственное кеширование можно отложить
         service.getRecords = function () {
             console.log("getRecords ...");
-            let response = $http({
+            return $http({
                 method: "GET",
                 url: (endpoint)
             });
-            return response;
         };
+
+        service.getMatchedMenuItems = function (searchTerm) {
+            console.log('getMatchedMenuItems')
+            return service.getRecords().then(function (response) {
+                // process result and only keep items that match
+                let result = response.data.menu_items;
+                let foundItems = []
+                result.forEach(item => {
+                    if (item.description.includes(searchTerm)) {
+                        foundItems.push(item);
+                    }
+                });
+                // return processed items
+                return foundItems;
+            });
+        }
     }
 }())
 
