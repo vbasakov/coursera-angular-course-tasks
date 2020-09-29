@@ -7,26 +7,56 @@
     <script src="app.js"></script>
     <link rel="stylesheet" href="styles/bootstrap.min.css">
     <link rel="stylesheet" href="styles/styles.css">
+    <style>
+        .emptyMessage {
+            font-weight: bold;
+            color: red;
+            font-size: 1.2em;
+        }
+    </style>
 </head>
 <body ng-app="Assignment3">
 <div class="container" ng-controller="NarrowItDownController as ctrl">
     <h1>Narrow Down Your Chinese Menu Choice</h1>
 
     <div class="form-group">
-        <input type="text" placeholder="search term" class="form-control">
+        <input type="text"
+               placeholder="search term"
+               class="form-control"
+               ng-model="ctrl.searchText"
+               ng-keydown="ctrl.onKeydown($event)">
     </div>
     <div class="form-group narrow-button">
-        <button class="btn btn-primary">Narrow It Down For Me!</button>
+        <button class="btn btn-primary" ng-click="ctrl.search()">Narrow It Down For Me!</button>
     </div>
 
-    <ul>
-        <li ng-repeat="item in ctrl.list">{{ item }}</li>
-    </ul>
+
+    <table border="1px" ng-show="ctrl.found.length > 0">
+        <tr ng-repeat="item in ctrl.found">
+            <td>{{ item.name }}</td>
+            <td>{{ item.short_name }}</td>
+            <td>{{ item.description }}</td>
+            <td>
+                <button class="btn btn-primary" ng-click="ctrl.removeFromFound($index)">Don't want this one!</button>
+            </td>
+        </tr>
+    </table>
+
     <!-- found-items should be implemented as a component -->
-<!--    <found-items found-items="...." on-remove="...."></found-items>-->
+    <!--    <found-items found-items="...." on-remove="...."></found-items>-->
+        
+    <div ng-show="ctrl.searchClicked && (ctrl.found.length === 0 || ctrl.searchText.length === 0)"
+         class="emptyMessage">
+        Nothing found
+    </div>
 </div>
 
 <div class="container">
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
     Code of the solution: <br>
     <a href="https://github.com/vbasakov/coursera-angular-course-tasks/tree/master/assignments/assignment3">
         https://github.com/vbasakov/coursera-angular-course-tasks/tree/master/assignments/assignment3

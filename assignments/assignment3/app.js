@@ -8,25 +8,57 @@
 
 
     NarrowItDownController.$inject = ["MenuSearchService"];
-    function NarrowItDownController(MenuSearchService) {
-         var ctrl = this;
 
-         var promise = MenuSearchService.getRecords();
-         promise.then(function (response) {
-             ctrl.list = response.data;
-        })
+    function NarrowItDownController(MenuSearchService) {
+        let ctrl = this;
+        ctrl.searchText = "";
+        ctrl.searchClicked = false;
+        ctrl.found = [];
+
+        function filter(list, searchText) {
+            let found = [];
+            list.forEach(item => {
+                if (item.description.includes(searchText)) {
+                    found.push(item);
+                }
+            });
+            return found;
+        }
+
+        ctrl.search = function () {
+            console.log("Search func");
+            ctrl.searchClicked = true;
+            if (ctrl.searchText.length === 0)
+                return;
+            let promise = MenuSearchService.getRecords();
+            promise.then(function (response) {
+                let list = response.data.menu_items;
+                ctrl.found = filter(list, ctrl.searchText);
+            })
+        };
+
+        ctrl.onKeydown = function (event) {
+            if (event.key === "Enter") {
+                ctrl.search();
+            }
+        }
+
+        ctrl.removeFromFound = function (index) {
+            ctrl.found.splice(index, 1);
+        };
 
     }
 
 
     //кешировать?
     MenuSearchService.$inject = ["$http", "endpoint"]
+
     function MenuSearchService($http, endpoint) {
-        var service = this;
+        let service = this;
 
         service.getRecords = function () {
             console.log("getRecords ...");
-            var response = $http({
+            let response = $http({
                 method: "GET",
                 url: (endpoint)
             });
