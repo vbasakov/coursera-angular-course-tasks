@@ -1,10 +1,12 @@
-<table border="1px">
-    <tr ng-repeat="item in $ctrl.foundItems">
-        <td>{{ item.name }}</td>
-        <td>{{ item.short_name }}</td>
-        <td>{{ item.description }}</td>
-        <td>
-            <button class="btn btn-primary" ng-click="$ctrl.remove($index);">Don't want this one!</button>
-        </td>
-    </tr>
-</table>
+<div class="container">
+    <table border="1px">
+        <tr ng-repeat="item in $ctrl.foundItems">
+            <td>{{ item.name }}</td>
+            <td>{{ item.short_name }}</td>
+            <td>{{ item.description }}</td>
+            <td>
+                <button class="btn btn-primary" ng-click="$ctrl.remove($index);">Don't want this one!</button>
+            </td>
+        </tr>
+    </table>
+</div>
