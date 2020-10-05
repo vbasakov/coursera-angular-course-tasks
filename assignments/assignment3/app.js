@@ -24,7 +24,6 @@
 
 
     NarrowItDownController.$inject = ["MenuSearchService"];
-
     function NarrowItDownController(MenuSearchService) {
         let ctrl = this;
         ctrl.searchText = "";
@@ -66,7 +65,6 @@
 
 
     MenuSearchService.$inject = ["$http", "endpoint"]
-
     function MenuSearchService($http, endpoint) {
         let service = this;
 
