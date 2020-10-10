@@ -9,8 +9,11 @@
     <script src="js/data.module.js"></script>
     <script src="js/menuapp.module.js"></script>
     <!--    services-->
+    <script src="js/menudata.service.js"></script>
     <!--    controllers-->
+    <script src="js/categories.controller.js"></script>
     <!--    components-->
+    <script src="js/categories.component.js"></script>
     <link rel="stylesheet" href="styles/bootstrap.min.css">
     <link rel="stylesheet" href="styles/styles.css">
 </head>
@@ -18,6 +21,12 @@
 
 <div class="container">
     <H1>Welcome!</H1>
+</div>
+
+
+
+<div ng-controller="CategoriesController as catCTRL">
+    <categories categories="catCTRL.categories"></categories>
 </div>
 
 
