@@ -5,12 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!--    libs-->
     <script src="js/lib/angular.min.js"></script>
+    <script src="js/lib/angular-ui-router.min.js"></script>
     <!--    modules-->
     <script src="js/data.module.js"></script>
     <script src="js/menuapp.module.js"></script>
     <!--    services-->
+    <script src="js/menuapp.routes.js"></script>
     <script src="js/menudata.service.js"></script>
-    <!--    controllers-->
     <script src="js/categories.controller.js"></script>
     <!--    components-->
     <script src="js/categories.component.js"></script>
@@ -19,16 +20,7 @@
 </head>
 <body ng-app="MenuApp">
 
-<div class="container">
-    <H1>Welcome!</H1>
-</div>
-
-
-
-<div ng-controller="CategoriesController as catCTRL">
-    <categories categories="catCTRL.categories"></categories>
-</div>
-
+<ui-view></ui-view>
 
 <div class="container">
     <br>
