@@ -26,10 +26,28 @@
                 controller: 'CategoriesController as catCTRL',
                 resolve: {
                     categories: ['MenuDataService', function (MenuDataService) {
-                        return MenuDataService.getAllCategories();
+                        return MenuDataService.getAllCategories()
+                            .then(function (response) {
+                                return response.data;
+                            });
                     }]
                 }
             })
+            .state('items', {
+                url: '/items/{categorySN}',
+                templateUrl: 'templates/items.template.html',
+                controller: 'ItemsController as itemsCTRL',
+                resolve: {
+                    data: ['$stateParams', 'MenuDataService',
+                        function ($stateParams, MenuDataService) {
+                            return MenuDataService.getItemsForCategory($stateParams.categorySN)
+                                .then(function (response) {
+                                    return response.data;
+                                });
+                        }]
+                }
+            })
+        ;
 
     }
 

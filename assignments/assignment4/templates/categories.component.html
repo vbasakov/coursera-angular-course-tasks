@@ -1,1 +1,14 @@
-{{ $ctrl.categories }}
+<ul>
+    <li ng-repeat="cat in $ctrl.categories"
+        ui-sref="items({categorySN: cat.short_name})"
+    class="btn-link">
+       {{cat.id}} {{cat.name}}
+    </li>
+</ul>
+
+
+<!--"id":89,-->
+<!--"short_name":"VG",-->
+<!--"name":"Vegetables",-->
+<!--"special_instructions":"",-->
+<!--"url":"https://davids-restaurant.herokuapp.com/categories/89.json"-->

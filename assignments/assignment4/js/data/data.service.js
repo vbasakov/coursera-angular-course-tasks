@@ -8,14 +8,13 @@
 
 
     MenuDataService.$inject = ['$http', 'categoryEndpoint', 'itemEndpoint'];
-
     function MenuDataService($http, categoryEndpoint, itemEndpoint) {
         var service = this;
         service.getAllCategories = function () {
             return $http({
                 method: "GET",
                 url: (categoryEndpoint)
-            });
+            })
         };
         service.getItemsForCategory = function (categoryShortName) {
             return $http({
@@ -23,9 +22,5 @@
                 url: (itemEndpoint + categoryShortName)
             });
         }
-
-
     }
-
-
 })();
