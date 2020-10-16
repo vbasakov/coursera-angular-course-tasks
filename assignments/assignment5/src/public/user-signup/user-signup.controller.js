@@ -6,7 +6,14 @@
 
 
     function SignUpController() {
-        var $ctrl = this;
+        var signupCtrl = this;
+
+        signupCtrl.submit = function (regForm) {
+            console.log(signupCtrl.user)
+            console.log(regForm)
+            regForm.favorite.$error.nonExist = true
+            signupCtrl.completed = true;
+        };
     }
 
 })();
