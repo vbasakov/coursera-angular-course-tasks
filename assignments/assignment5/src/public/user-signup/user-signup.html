@@ -1,0 +1,64 @@
+<div class="container">
+    <span><h1>Sign up</h1></span>
+    <span>: first name, last name, email address, and phone number.
+
+
+        It should also ask the user to specify the menu number that's their favorite dish.
+        (The menu number is the short_name attribute of each menu item).
+
+        Everything in the form (except the short_name) must be validated through AngularJS validation we learned in this module.
+        When the user clicks the Submit button (after all other fields are validated), try to retrieve the menu item the user specified as their favorite through the following REST endpoint https://YOUR-CHOSEN-SUBDOMAIN.herokuapp.com/menu_items/SHORT-NAME.json, where YOUR-CHOSEN-SUBDOMAIN is the subdomain discussed in Lecture50 (Restaurant Server Setup), and the SHORT-NAME is the name the user provided.
+        If the server returns an error, you will know that the item name specified is not valid.
+
+        If that's the case, display a message next to the favorite choice saying No such menu number exists.
+        (See bonus for more)
+
+        If everything is valid, save the user's preference somewhere in your client app such that you can retrieve it in another view/component/controller/etc. (Hint: think service). Once saved, display a message below the form saying Your information has been saved.
+
+    <fieldset>
+        <legend>Registration</legend>
+        <form name='regForm' novalidate>
+
+        <input minlength="4" name="username" ng-maxlength="10"
+               ng-model="reg.user.username"
+               placeholder="Pick a username"
+               required
+               type="text">
+
+          <span
+                  ng-if="(regForm.username.$error.minlength || regForm.username.$error.required) && regForm.username.$touched">
+            Username must be at least 4 characters long
+          </span>
+          <span ng-if="regForm.username.$error.maxlength && regForm.username.$touched">
+            Username must not be longer than 10 characters
+          </span>
+          <br>
+
+        <input name="email" ng-model="reg.user.email" placeholder="Email"
+               required
+               type="email">
+          <span ng-if="regForm.email.$invalid && regForm.email.$touched">
+            Must be a valid email address: handle@domain format
+          </span>
+          <br>
+
+        <input name="phone" ng-model="reg.user.phone" pattern="(\d{3})-(\d{3})-(\d{4})"
+               placeholder="Phone ###-###-####"
+               type="text">
+          <span ng-if="regForm.phone.$invalid && regForm.phone.$touched">
+            Phone must be in the format ###-###-####.
+          </span>
+          <br>
+
+        <button
+                ng-click="reg.submit()"
+                ng-disabled="regForm.$invalid">Submit</button>
+
+          <div style="margin-top: 10px;">
+            Form valid? {{ regForm.$valid }}
+          </div>
+      </form>
+    </fieldset>
+</span>
+
+</div>

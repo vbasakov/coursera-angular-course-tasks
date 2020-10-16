@@ -31,6 +31,28 @@
                     }]
                 }
             })
+            .state('public.userinfo', {
+                url: '/userinfo',
+                templateUrl: 'src/public/user-info/user-info.html',
+                controller: 'UserInfoController',
+                controllerAs: 'infoCtrl',
+                // resolve: {
+                //     menuCategories: ['MenuService', function (MenuService) {
+                //         return MenuService.getCategories();
+                //     }]
+                // }
+            })
+            .state('public.signup', {
+                url: '/signup',
+                templateUrl: 'src/public/user-signup/user-signup.html',
+                controller: 'SignUpController',
+                controllerAs: 'signupCtrl',
+                // resolve: {
+                //     menuCategories: ['MenuService', function (MenuService) {
+                //         return MenuService.getCategories();
+                //     }]
+                // }
+            })
             .state('public.menuitems', {
                 url: '/menu/{category}',
                 templateUrl: 'src/public/menu-items/menu-items.html',
