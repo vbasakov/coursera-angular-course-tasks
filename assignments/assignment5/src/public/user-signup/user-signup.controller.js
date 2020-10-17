@@ -22,7 +22,6 @@
                 console.log("Something wrong...");
                 console.log(error);
                 regForm.favorite.$error.nonExist = true
-                signupCtrl.user.favorite = {}
                 UserService.setUser(signupCtrl.user)
             });
             signupCtrl.completed = true;

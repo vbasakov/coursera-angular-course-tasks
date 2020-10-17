@@ -5,9 +5,10 @@
         <span>Last name:  {{ userCtrl.user.lastname }}</span><br/>
         <span>Email:      {{ userCtrl.user.email }}</span><br/>
         <span ng-if="userCtrl.user.phone">Phone:      {{ userCtrl.user.phone }}</span><br/>
+        <span>{{userCtrl.user.favorite}}</span><br/>
         <span ng-if="userCtrl.user.favorite">Favorite dish: </span><br/>
     </div>
-    <menu-item menu-item="userCtrl.user.favorite">
+    <menu-item menu-item="userCtrl.user.favorite" ng-if="userCtrl.user.favorite">
     </menu-item>
 </div>
 <div class="container" ng-if="userCtrl.user === undefined">
