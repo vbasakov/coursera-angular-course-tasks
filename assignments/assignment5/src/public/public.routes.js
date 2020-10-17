@@ -35,12 +35,12 @@
                 url: '/userinfo',
                 templateUrl: 'src/public/user-info/user-info.html',
                 controller: 'UserInfoController',
-                controllerAs: 'infoCtrl',
-                // resolve: {
-                //     menuCategories: ['MenuService', function (MenuService) {
-                //         return MenuService.getCategories();
-                //     }]
-                // }
+                controllerAs: 'userCtrl',
+                resolve: {
+                    user: ['UserService', function (UserService) {
+                        return UserService.getUser();
+                    }]
+                }
             })
             .state('public.signup', {
                 url: '/signup',

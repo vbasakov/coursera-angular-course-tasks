@@ -59,12 +59,12 @@
           <br>
 
         <input name="favorite"
-               ng-model="signupCtrl.user.favorite"
+               ng-model="signupCtrl.user.favoriteShortName"
                placeholder="Favorite dish"
                type="text">
         <span
-                ng-if="signupCtrl.favorite">
-            {{signupCtrl.favorite}}
+                ng-if="signupCtrl.favoriteName">
+            {{signupCtrl.favoriteName}}
           </span>
         <span
                 ng-if="regForm.favorite.$error.nonExist">

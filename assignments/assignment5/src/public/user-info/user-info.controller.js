@@ -5,8 +5,12 @@
         .controller('UserInfoController', UserInfoController);
 
 
-    function UserInfoController() {
-        var $ctrl = this;
+    UserInfoController.$inject = ['user']
+
+    function UserInfoController(user) {
+        var userCtrl = this;
+        userCtrl.user = user
+        console.log(user)
     }
 
 })();

@@ -1,3 +1,15 @@
-<div class="container">
-    User info
+<div class="container" ng-if="userCtrl.user !== undefined">
+    <div class="container">
+        <h3>User info:</h3>
+        <span>First name: {{ userCtrl.user.firstname }}</span><br/>
+        <span>Last name:  {{ userCtrl.user.lastname }}</span><br/>
+        <span>Email:      {{ userCtrl.user.email }}</span><br/>
+        <span ng-if="userCtrl.user.phone">Phone:      {{ userCtrl.user.phone }}</span><br/>
+        <span ng-if="userCtrl.user.favorite">Favorite dish: </span><br/>
+    </div>
+    <menu-item menu-item="userCtrl.user.favorite">
+    </menu-item>
+</div>
+<div class="container" ng-if="userCtrl.user === undefined">
+    Not Signed Up Yet. Sign up Now!
 </div>
