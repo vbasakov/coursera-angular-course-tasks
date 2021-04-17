@@ -4,15 +4,12 @@
     /**
      * Main module that includes the public module as a dependency
      */
-    angular.module('calculator',[])
+    angular.module('calculator', ['public'])
         .config(config);
-    // angular.module('restaurant', ['public'])
-    //     .config(config);
 
     config.$inject = ['$urlRouterProvider'];
 
     function config($urlRouterProvider) {
-
         // If user goes to a path that doesn't exist, redirect to public root
         $urlRouterProvider.otherwise('/');
     }
