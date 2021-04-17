@@ -19,7 +19,7 @@
             .state('public.launchCheck', {
                 url: '/',
                 controller: 'LaunchCheckController',
-                templateUrl: 'src/public/launchCheck/launch-check.html'
+                templateUrl: 'src/public/launch-check/launch-check.html'
             });
 
     }
