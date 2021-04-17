@@ -13,11 +13,7 @@
 <body ng-app="calculator" ng-strict-di>
 
 
-<div id="specials-tile">
-    <a ui-sref="public.launchCheck">launchCheck</a>
 
-    <a ui-sref="public.launchCheck1">another</a>
-</div>
 
 <ui-view>
     <div class="text-center initial-loading">
@@ -25,6 +21,11 @@
     </div>
 </ui-view>
 
+<div id="specials-tile">
+    <a ui-sref="public.launch-check">launchCheck</a>
+
+    <a ui-sref="public.calculator-ipoteka">ipoCalc</a>
+</div>
 
 <!--Libs-->
 <script src="lib/jquery-2.1.4.min.js"></script>
@@ -39,6 +40,7 @@
 <script src="src/public/public.module.js"></script>
 <script src="src/public/public.routes.js"></script>
 <script src="src/public/launch-check/launch-check.controller.js"></script>
+<script src="src/public/calculator-ipoteka/calculator-ipoteka.controller.js"></script>
 
 
 </body>

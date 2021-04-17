@@ -16,8 +16,18 @@
                 abstract: true,
                 templateUrl: 'src/public/public.html'
             })
-            .state('public.launchCheck', {
+            .state('public.root', {
                 url: '/',
+                controller: 'CalculatorIpotekaController',
+                templateUrl: '/src/public/calculator-ipoteka/calculator-ipoteka.html'
+            })
+            .state('public.calculator-ipoteka', {
+                url: '/ipo-calc',
+                controller: 'CalculatorIpotekaController',
+                templateUrl: '/src/public/calculator-ipoteka/calculator-ipoteka.html'
+            })
+            .state('public.launch-check', {
+                url: '/launch-check',
                 controller: 'LaunchCheckController',
                 templateUrl: 'src/public/launch-check/launch-check.html'
             });
