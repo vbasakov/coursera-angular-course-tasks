@@ -1,5 +1,31 @@
-<div>
+<div style="padding-left: 15px;">
     <H2>
-      <span style="color: green; font-weight: bold;">Ипотечный калькулятор</span>
+        <span style="color: green; font-weight: bold;">Ипотечный калькулятор</span>
     </H2>
+
+    <!--        <legend>Registration</legend>-->
+    <form name='ipoForm' class="loan-form" novalidate>
+        <div class="loan-form-row">
+            <div class="loan-form-col">
+                <label>Стоимость квартиры</label>
+
+                <input name="sum"
+                       ng-model="ipoCtrl.form.sum"
+                       required
+                       type="text">
+                <input name="valuta" type="text">
+            </div>
+        </div>
+
+        <div class="loan-form-row">
+            <div class="loan-form-col">
+                <button name="submit"
+                        ng-click="signupCtrl.submit(regForm)"
+                        ng-disabled="regForm.$invalid">Submit
+                </button>
+            </div>
+        </div>
+
+    </form>
+
 </div>

@@ -5,6 +5,28 @@
     color: #fff;
 }
 
+.loan-form-row {
+    display: flex;
+    flex-wrap: wrap;
+    margin-right: -15px;
+    margin-left: -15px;
+}
+.loan-form-col {
+    position: relative;
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+}
+/*todo button will be another style*/
+.loan-form-row input, .loan-form-row button {
+    border-radius: 5px;
+    border: 0;
+    padding: 5px;
+    height: 32px;
+    background: #FDE293;
+    font-size: 14px;
+}
+
 .message {
     font-size: 1.3em;
     font-weight: bold;
