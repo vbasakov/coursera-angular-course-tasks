@@ -1,10 +1,11 @@
 (function () {
     'use strict';
-    angular.module("LunchCheck", [])
-        .controller("LunchCheckController", LunchCheckController);
-    LunchCheckController.$inject = ['$scope'];
-    function LunchCheckController($scope) {
+    angular.module("LaunchCheck", [])
+        .controller("LaunchCheckController", LaunchCheckController);
+    LaunchCheckController.$inject = ['$scope'];
+    function LaunchCheckController($scope) {
         $scope.menu = ""
+        $scope.greeting = "controller is available from inner folder"
 
         function getMessage() {
             if ($scope.menu === "")

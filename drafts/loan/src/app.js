@@ -1,20 +1,20 @@
 (function () {
-    'use strict';
-    angular.module("LunchCheck", [])
-        .controller("LunchCheckController", LunchCheckController);
-    LunchCheckController.$inject = ['$scope'];
-    function LunchCheckController($scope) {
-        $scope.menu = ""
+    "use strict";
 
-        function getMessage() {
-            if ($scope.menu === "")
-                return "Please enter data first"
-            let list = $scope.menu.split(',')
-            return list.length <= 3 ? "Enjoy!" : "Too much!"
-        }
+    /**
+     * Main module that includes the public module as a dependency
+     */
+    angular.module('calculator',[])
+        .config(config);
+    // angular.module('restaurant', ['public'])
+    //     .config(config);
 
-        $scope.showMessage = function () {
-            $scope.message = getMessage();
-        }
+    config.$inject = ['$urlRouterProvider'];
+
+    function config($urlRouterProvider) {
+
+        // If user goes to a path that doesn't exist, redirect to public root
+        $urlRouterProvider.otherwise('/');
     }
+
 })();
