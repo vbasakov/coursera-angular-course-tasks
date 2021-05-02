@@ -7,18 +7,20 @@
 
 .loan-form-row {
     display: flex;
-    flex-wrap: wrap;
+    /*flex-wrap: wrap;*/
     margin-right: -15px;
     margin-left: -15px;
 }
-.loan-form-col {
+/*todo refactor*/
+.loan-form-row td {
     position: relative;
-    width: 100%;
+    /*width: 100%;*/
     padding-right: 15px;
     padding-left: 15px;
+
 }
 /*todo button will be another style*/
-.loan-form-row input, .loan-form-row button {
+.loan-form-row td input, .loan-form-row td button {
     border-radius: 5px;
     border: 0;
     padding: 5px;

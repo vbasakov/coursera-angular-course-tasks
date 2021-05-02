@@ -5,27 +5,108 @@
 
     <!--        <legend>Registration</legend>-->
     <form name='ipoForm' class="loan-form" novalidate>
-        <div class="loan-form-row">
-            <div class="loan-form-col">
-                <label>Стоимость квартиры</label>
+        <table>
+            <tr class="loan-form-row">
+                <td style="width:45%">
+                    <label>Стоимость квартиры</label>
+                </td>
+                <td>
+                    <input name="sum"
+                           ng-model="ipoCtrl.form.sum"
+                           required
+                           type="text">
+                </td>
+                <td >
+                    <input name="valuta" type="text">
+                </td>
+            </tr>
+            <tr class="loan-form-row">
+                <td>
+                    <label>Первоначальный взнос</label>
+                </td>
+                <td>
+                    <input name="initial"
+                           ng-model="ipoCtrl.form.initial"
+                           required
+                           type="text">
+                </td>
+                <td>
+                    <input name="valuta" type="text">
+                </td>
+            </tr>
+            <tr class="loan-form-row">
+                <td style="width:45%">
+                    <label>Срок ипотеки</label>
+                </td>
+                <td>
+                    <input name="years"
+                           ng-model="ipoCtrl.form.years"
+                           required
+                           type="text">
+                </td>
+                <td>
+                    <input name="valuta" type="text">
+                </td>
+            </tr>
+            <tr class="loan-form-row">
+                <td style="width:45%">
+                    <label>Процентная ставка</label>
+                </td>
+                <td>
+                    <input name="rate"
+                           ng-model="ipoCtrl.form.rate"
+                           required
+                           type="text">
+                </td>
+                <td>
+                    <input name="valuta" type="text">
+                </td>
+            </tr>
 
-                <input name="sum"
-                       ng-model="ipoCtrl.form.sum"
-                       required
-                       type="text">
-                <input name="valuta" type="text">
-            </div>
-        </div>
 
-        <div class="loan-form-row">
-            <div class="loan-form-col">
-                <button name="submit"
-                        ng-click="signupCtrl.submit(regForm)"
-                        ng-disabled="regForm.$invalid">Submit
-                </button>
-            </div>
-        </div>
-
+            <tr class="loan-form-row">
+                <td>
+                    <button name="submit"
+                            ng-click="signupCtrl.submit(regForm)"
+                            ng-disabled="regForm.$invalid">Submit
+                    </button>
+                </td>
+            </tr>
+        </table>
     </form>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
 
+
+    <table width="993" border="0" align="center" cellpadding="5" cellspacing="3" bordercolor="#FFFFFF">
+        <tbody><tr bgcolor="#F7941D">
+            <td width="4%" align="center" class="t-verhlevo">№ платежа</td>
+            <td width="16%" align="center">Дата платежа</td>
+            <td width="16%" align="center">Сумма платежа</td>
+            <td width="16%" align="center">Основной долг</td>
+            <td width="16%" align="center">Начисленные проценты</td>
+            <td width="16%" align="center">Ежемесячные   комиссии</td>
+            <td width="16%" align="center" class="t-verhpravo">Остаток задолженности</td>
+        </tr>
+
+        <tr ng-repeat="rec in ipoCtrl.loanRecords"
+            bgcolor="{{ rec.num % 2 == 0 ? '#FEDFBA' : '' }}">
+            <td align="center">{{ rec.num }}</td>
+            <td align="center">{{ rec.date }}</td>
+            <td align="center">{{ rec.sum }}</td>
+            <td align="center">{{ rec.main }}</td>
+            <td align="center">{{ rec.procents }}</td>
+            <td align="center">0,00 </td>
+            <td align="center">{{ rec.rest }}</td>
+        </tr>
+
+        <tr ng-repeat="item in ctrl.list" >
+            <td>{{ item.operDate }}</td>
+            <td>{{ item.sum }}</td>
+            <td>{{ item.description }}</td>
+        </tr>
+        </tbody>
+    </table>
 </div>

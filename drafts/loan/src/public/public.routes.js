@@ -20,13 +20,13 @@
                 url: '/',
                 controller: 'CalculatorIpotekaController',
                 controllerAs: 'ipoCtrl',
-                templateUrl: '/src/public/calculator-ipoteka/calculator-ipoteka.html'
+                templateUrl: 'src/public/calculator-ipoteka/calculator-ipoteka.html'
             })
             .state('public.calculator-ipoteka', {
                 url: '/ipo-calc',
                 controller: 'CalculatorIpotekaController',
                 controllerAs: 'ipoCtrl',
-                templateUrl: '/src/public/calculator-ipoteka/calculator-ipoteka.html'
+                templateUrl: 'src/public/calculator-ipoteka/calculator-ipoteka.html'
             })
             .state('public.launch-check', {
                 url: '/launch-check',
