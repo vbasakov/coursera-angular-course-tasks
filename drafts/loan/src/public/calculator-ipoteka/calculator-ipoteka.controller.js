@@ -2,9 +2,9 @@
     'use strict';
     angular.module('public')
         .controller('CalculatorIpotekaController', CalculatorIpotekaController);
-    CalculatorIpotekaController.$inject = ['$scope'];
+    CalculatorIpotekaController.$inject = ['$scope', '$cookies'];
 
-    function CalculatorIpotekaController($scope) {
+    function CalculatorIpotekaController($scope, $cookies) {
         var ipoCtrl = this;
         ipoCtrl.form = {
             sum: 2_500_000,
@@ -13,6 +13,12 @@
             rate: 16.5,
 
         };
+
+        // Retrieving a cookie
+        var favoriteCookie = $cookies.get('myFavorite');
+        console.log('fc: ' + favoriteCookie)
+        // Setting a cookie
+        $cookies.put('myFavorite', 'oatmeal');
 
 
         function getRecords(years, sum, rate, startMonth, startYear) {
