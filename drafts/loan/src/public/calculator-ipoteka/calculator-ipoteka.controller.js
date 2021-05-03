@@ -104,6 +104,8 @@
                         result.push(dos)
                         // subscribers.forEach(it -> it.onNext(report));
                         sum -= important;
+                        annuityPayment = (sum * monthlyRate) / (1 - Math.pow(1 + monthlyRate, -periodsNumber));
+                        annuityPayment = round(annuityPayment)
                     } else {
                         break;
                     }
