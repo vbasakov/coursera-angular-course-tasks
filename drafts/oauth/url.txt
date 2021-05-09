@@ -1,0 +1,28 @@
+https://accounts.google.com/o/oauth2/v2/auth?
+ scope=https%3A//www.googleapis.com/auth/youtube.readonly&
+ access_type=offline&
+ include_granted_scopes=false&
+ response_type=code&
+ state=state_parameter_passthrough_value&
+ redirect_uri=https%3A//oauth2.example.com/code&
+ client_id=152220877642-tqk4dtpl3q0more0m0jn4pmivbud22jv.apps.googleusercontent.com
+
+
+https://accounts.google.com/o/oauth2/v2/auth?
+ scope=https%3A//www.googleapis.com/auth/youtube.readonly&
+ access_type=offline&
+ response_type=code&
+ state=state_parameter_passthrough_value&
+ redirect_uri=https%3A//oauth2.example.com/code&
+ client_id=152220877642-tqk4dtpl3q0more0m0jn4pmivbud22jv.apps.googleusercontent.com
+
+https://accounts.google.com/o/oauth2/v2/auth?scope=https%3A//www.googleapis.com/auth/youtube.readonly&access_type=offline&response_type=code&state=state_parameter_passthrough_value&redirect_uri=https%3A//oauth2.example.com/code&client_id=152220877642-tqk4dtpl3q0more0m0jn4pmivbud22jv.apps.googleusercontent.com
+
+https://oauth2.example.com/code?state=state_parameter_passthrough_value&code=4/0AY0e-g6Emht0jzl0oZabIrqFD9z9WpBlSpj29SMCzH2UbvoJdwgpg7xGrRWYyLEktKpCeQ&scope=https://www.googleapis.com/auth/youtube.readonly
+
+https://oauth2.example.com/code?state=state_parameter_passthrough_value
+&code=4/0AY0e-g6Emht0jzl0oZabIrqFD9z9WpBlSpj29SMCzH2UbvoJdwgpg7xGrRWYyLEktKpCeQ
+&scope=https://www.googleapis.com/auth/youtube.readonly
+
+https%3A//www.googleapis.com/auth/youtube.readonly
+https%3A//www.googleapis.com/auth/drive.metadata.readonly&

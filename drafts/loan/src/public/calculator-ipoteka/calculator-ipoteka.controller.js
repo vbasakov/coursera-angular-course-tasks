@@ -7,10 +7,10 @@
     function CalculatorIpotekaController($scope, $cookies) {
         var ipoCtrl = this;
         ipoCtrl.form = {
-            sum: 2_500_000,
+            sum: 3917408.97,
             initial: 0,
-            years: 15,
-            rate: 16.5,
+            years: 22,
+            rate: 8.9,
 
         };
 
@@ -90,7 +90,7 @@
                 let withDosroch = true
                 if (withDosroch) {
 
-                    let important = 50000;
+                    let important = 130000 - annuityPayment;
                     let dos = {
                         num: i,
                         date: date,
