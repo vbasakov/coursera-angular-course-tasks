@@ -26,3 +26,21 @@ https://oauth2.example.com/code?state=state_parameter_passthrough_value
 
 https%3A//www.googleapis.com/auth/youtube.readonly
 https%3A//www.googleapis.com/auth/drive.metadata.readonly&
+
+
+
+
+OpenID Connect, 1.0
+
+Scopes
+openid	Authenticate using OpenID Connect
+profile	View your basic profile info
+email	View your email address
+
+
+Google OAuth2 API, v2
+
+Scopes
+https://www.googleapis.com/auth/userinfo.email	View your email address
+https://www.googleapis.com/auth/userinfo.profile	See your personal info, including any personal info you've made publicly available
+openid	Associate you with your personal info on Google
